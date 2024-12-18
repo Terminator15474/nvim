@@ -33,3 +33,4 @@ vim.api.nvim_create_autocmd(
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
+
