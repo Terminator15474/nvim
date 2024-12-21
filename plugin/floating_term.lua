@@ -1,4 +1,4 @@
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
 
 local state = {
 	floating = {
@@ -40,6 +40,8 @@ local function create_floating_window(opts)
 	local win = vim.api.nvim_open_win(buf, true, win_config)
 	return { buf = buf, win = win }
 end
+
+
 local toggle_term = function()
 	if not vim.api.nvim_win_is_valid(state.floating.win) then
 		state.floating = create_floating_window { title = "Terminal", buf = state.floating.buf }

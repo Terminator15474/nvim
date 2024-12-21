@@ -34,3 +34,6 @@ vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+
+vim.keymap.set('n', '<leader>w', '<C-W>')
