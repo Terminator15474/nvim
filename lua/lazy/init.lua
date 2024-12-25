@@ -21,7 +21,7 @@ require("lazy").setup({
 	spec = "lazy.lazy_specs",
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "habmax" } },
+	install = { colorscheme = { "tokyonight", "habmax" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 })
