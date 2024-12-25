@@ -12,13 +12,15 @@ return {
 				set_vim_settings = true,
 			}
 		end
-},
+	},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {
-			style = 'moon'
+			style = 'moon',
+			transparent = false,
+
 		},
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
@@ -34,7 +36,7 @@ return {
 		-- @type
 		opts = {
 			theme = {
-				transparent = false,
+				transparent = true,
 				style = "dark", --  "dark" | "light"
 				contrast = "default", -- "default" | "high"
 			},
