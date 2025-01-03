@@ -14,17 +14,30 @@ return {
 		end
 	},
 	{
+		"LunarVim/breadcrumbs.nvim",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+		},
+		config = function()
+			require("nvim-navic").setup {
+				lsp = {
+					auto_attach = true,
+				}
+			}
+
+			require("breadcrumbs").setup()
+		end,
+	},
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {
 			style = 'moon',
 			transparent = false,
-
 		},
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
-			vim.cmd [[ colorscheme tokyonight ]]
 		end
 	},
 	{
@@ -36,7 +49,7 @@ return {
 		-- @type
 		opts = {
 			theme = {
-				transparent = true,
+				transparent = false,
 				style = "dark", --  "dark" | "light"
 				contrast = "default", -- "default" | "high"
 			},
@@ -50,4 +63,26 @@ return {
 			},
 		},
 	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		opts = {
+			compile = true,
+			transparent = false,
+			terminalColors = true,
+		}
+	},
+	{
+		'shaunsingh/nord.nvim',
+	},
+	{
+		'ficcdaf/ashen.nvim'
+	}
 }

@@ -37,3 +37,9 @@ end)
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 
 vim.keymap.set('n', '<leader>w', '<C-W>')
+
+vim.keymap.set({ "n", "v" }, "<leader>ud", function()
+	vim.cmd.UndotreeToggle()
+	vim.cmd.UndotreeFocus()
+end)
+
