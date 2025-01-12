@@ -43,3 +43,4 @@ vim.keymap.set({ "n", "v" }, "<leader>ud", function()
 	vim.cmd.UndotreeFocus()
 end)
 
+vim.keymap.set("n", "<leader>to", "<cmd>TransparentToggle<cr>")
