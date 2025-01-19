@@ -64,10 +64,7 @@ return {
 				vim.print = _G.dd -- Override print to use snacks for `:=` command
 
 				-- Create some toggle mappings
-				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>ts")
-				Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>tw")
 				Snacks.toggle.diagnostics():map("<leader>td")
-				Snacks.toggle.inlay_hints():map("<leader>th")
 			end,
 		})
 	end,

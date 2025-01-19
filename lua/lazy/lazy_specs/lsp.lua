@@ -24,7 +24,8 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"gopls",
-					"rust_analyzer"
+					"rust_analyzer",
+					"powershell_es",
 				},
 				automatic_installation = true,
 				handlers = {
@@ -37,4 +38,17 @@ return {
 			}
 		end
 	},
+	{
+		'lervag/vimtex',
+		lazy = false,
+		init = function()
+			--vim.g.vimtex_view_method = "sioyek"
+			vim.g.vimtex_compiler_method = "generic"
+			vim.g.vimtex_generic_compiler = {
+				--command = "lualatex --file-line-error --synctex=1 --shell-escape @tex",
+				command = "echo 'It Works' > test.txt",
+				hooks = {},
+			}
+		end
+	}
 }

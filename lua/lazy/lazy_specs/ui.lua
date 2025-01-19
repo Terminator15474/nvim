@@ -1,15 +1,55 @@
 return {
 	{
-		'echasnovski/mini.statusline',
+		'nvim-lualine/lualine.nvim',
 		version = '*',
 		config = function()
-			require('mini.statusline').setup {
-				content = {
-					active = nil,
-					inactive = nil
+			require('lualine').setup {
+				function()
+					return require("lazydo").get_lualine_stats() -- status
+				end,
+				cond = function()
+					return require("lazydo")._initialized -- condition for lualine
+				end,
+
+				options = {
+					icons_enabled = true,
+					theme = 'auto',
+					component_separators = { left = '', right = '' },
+					section_separators = { left = '', right = '' },
+					disabled_filetypes = {
+						statusline = {},
+						winbar = {},
+					},
+					ignore_focus = {},
+					always_divide_middle = true,
+					always_show_tabline = true,
+					globalstatus = false,
+					refresh = {
+						statusline = 100,
+						tabline = 100,
+						winbar = 100,
+					}
 				},
-				use_icons = true,
-				set_vim_settings = true,
+				sections = {
+					lualine_a = { 'mode' },
+					lualine_b = { 'branch', 'diff', 'diagnostics' },
+					lualine_c = { 'filename' },
+					lualine_x = { 'encoding', 'fileformat', 'filetype' },
+					lualine_y = { 'progress' },
+					lualine_z = { 'location' }
+				},
+				inactive_sections = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_c = { 'filename' },
+					lualine_x = { 'location' },
+					lualine_y = {},
+					lualine_z = {}
+				},
+				tabline = {},
+				winbar = {},
+				inactive_winbar = {},
+				extensions = {}
 			}
 		end
 	},
@@ -49,6 +89,18 @@ return {
 				on_clear = function() end,
 			})
 		end
+	},
+	{
+		'Dan7h3x/LazyDo',
+		branch = "main",
+		cmd = { "LazyDoToggle", "LazyDoPin" },
+		keys = {
+			{
+				"<leader>ts", "<ESC><CMD>LazyDoToggle<CR>", mode = { "n"}
+			}
+		},
+		opts = {}
+		--	event = "VeryLazy",
 	},
 	{
 		"folke/tokyonight.nvim",
