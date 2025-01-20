@@ -47,6 +47,9 @@ return {
 			vim.g.vimtex_compiler_latexmk = {
 				options = {
 					"-lualatex",
+					"-synctex=1",
+					"--shell-escape",
+					"-pdflua",
 				}
 			}
 		end
