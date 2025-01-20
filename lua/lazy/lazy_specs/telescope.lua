@@ -34,6 +34,13 @@ return {
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 			vim.keymap.set("n", "<leader>ft", builtin.live_grep)
 
+			-- Nvim Options
+			vim.keymap.set("n", "<leader>fn", function()
+				builtin.find_files {
+					cwd = vim.fn.stdpath("config")
+				}
+			end)
+
 			-- Colors
 			vim.keymap.set("n", "<leader>cc", builtin.colorscheme)
 

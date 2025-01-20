@@ -42,19 +42,13 @@ return {
 		'lervag/vimtex',
 		lazy = false,
 		init = function()
-			--vim.g.vimtex_view_method = "sioyek"
+			vim.g.vimtex_view_method = "general"
 			vim.g.vimtex_compiler_method = "latexmk"
 			vim.g.vimtex_compiler_latexmk = {
 				options = {
 					"-lualatex",
 				}
 			}
-
-			-- vim.g.vimtex_generic_compiler = {
-			-- 	--command = "lualatex --file-line-error --synctex=1 --shell-escape @tex",
-			-- 	command = "echo 'It Works' > test.txt",
-			-- 	hooks = {},
-			-- }
 		end
 	}
 }
