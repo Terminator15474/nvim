@@ -46,11 +46,13 @@ return {
 			vim.g.vimtex_compiler_method = "latexmk"
 			vim.g.vimtex_compiler_latexmk = {
 				options = {
-					"-lualatex",
+					"-verbose",
 					"-synctex=1",
 					"--shell-escape",
-					"-pdflua",
 				}
+			}
+			vim.g.vimtex_compiler_latexmk_engines = {
+				_ = '-lualatex'
 			}
 		end
 	}
