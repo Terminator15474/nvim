@@ -1,6 +1,7 @@
 return {
 	{
 		"xzbdmw/colorful-menu.nvim",
+		lazy = false,
 		config = function()
 			-- You don't need to set these options.
 			require("colorful-menu").setup({
@@ -30,14 +31,15 @@ return {
 				max_width = 60,
 			})
 		end,
-		lazy = false,
-		priotity = 1000
 	},
 	{
 		'saghen/blink.cmp',
-		dependencies = 'rafamadriz/friendly-snippets',
+		dependencies = {
+			'rafamadriz/friendly-snippets',
+			'xzbdmw/colorful-menu.nvim',
+		},
 		version = 'v0.9.2',
-
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			---@type blink.cmp.Config
 			local opts = {
@@ -54,6 +56,7 @@ return {
 					nerd_font_variant = 'mono',
 				},
 				sources = {
+					min_keyword_length = 0,
 					default = { 'lsp', 'lazydev', 'path', 'buffer' },
 					providers = {
 						lazydev = {
@@ -69,6 +72,7 @@ return {
 						prefetch_on_insert = true,
 					},
 					menu = {
+						auto_show = true,
 						draw = {
 							columns = { { "kind_icon" }, { "label", gap = 1 } },
 							components = {
@@ -112,41 +116,39 @@ return {
 				},
 				signature = { enabled = true, },
 			}
-
 			require("blink.cmp").setup(opts)
 		end
 	},
 	{
 		'echasnovski/mini.pairs',
 		version = '*',
-		config = function()
-			require('mini.pairs').setup {
-				-- In which modes mappings from this `config` should be created
-				modes = { insert = true, command = false, terminal = false },
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {
+			-- In which modes mappings from this `config` should be created
+			modes = { insert = true, command = false, terminal = false },
 
-				-- Global mappings. Each right hand side should be a pair information, a
-				-- table with at least these fields (see more in |MiniPairs.map|):
-				-- - <action> - one of 'open', 'close', 'closeopen'.
-				-- - <pair> - two character string for pair to be used.
-				-- By default pair is not inserted after `\`, quotes are not recognized by
-				-- `<CR>`, `'` does not insert pair after a letter.
-				-- Only parts of tables can be tweaked (others will use these defaults).
-				mappings = {
-					['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
-					['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
-					['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
-					['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^\\].' },
+			-- Global mappings. Each right hand side should be a pair information, a
+			-- table with at least these fields (see more in |MiniPairs.map|):
+			-- - <action> - one of 'open', 'close', 'closeopen'.
+			-- - <pair> - two character string for pair to be used.
+			-- By default pair is not inserted after `\`, quotes are not recognized by
+			-- `<CR>`, `'` does not insert pair after a letter.
+			-- Only parts of tables can be tweaked (others will use these defaults).
+			mappings = {
+				['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+				['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+				['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+				['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^\\].' },
 
-					[')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-					[']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-					['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
-					['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^\\].' },
+				[')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+				[']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+				['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+				['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^\\].' },
 
-					['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
-					["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
-					['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
-				},
-			}
-		end
+				['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+				["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+				['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+			},
+		}
 	},
 }

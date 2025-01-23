@@ -18,6 +18,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
+---@module 'lazy.types'
+---@type LazyConfig
 require("lazy").setup({
 	spec = "lazy.lazy_specs",
 	-- Configure any other settings here. See the documentation for more details.
@@ -25,4 +27,7 @@ require("lazy").setup({
 	install = { colorscheme = { "tokyonight", "habmax" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
+	defaults = {
+		lazy = true,
+	}
 })

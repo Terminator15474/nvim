@@ -1,8 +1,8 @@
 return {
 	{
 		'nvzone/typr',
-		    cmd = "TyprStats",
-    dependencies = "nvzone/volt",
-    opts = {},
+		cmd = { "TyprStats", "Typr" },
+		dependencies = "nvzone/volt",
+		opts = {},
 	},
 }

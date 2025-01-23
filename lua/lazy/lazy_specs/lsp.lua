@@ -17,6 +17,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"saghen/blink.cmp",
 		},
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			require("mason").setup {}
@@ -40,8 +41,8 @@ return {
 	},
 	{
 		'lervag/vimtex',
-		lazy = false,
-		init = function()
+		event = { "BufReadPre *.tex", "BufNewFile *.tex" },
+		config = function()
 			vim.g.vimtex_view_method = "general"
 			vim.g.vimtex_compiler_method = "latexmk"
 			vim.g.vimtex_compiler_latexmk = {
@@ -52,7 +53,7 @@ return {
 				}
 			}
 			vim.g.vimtex_compiler_latexmk_engines = {
-				_ = '-lualatex'
+				_ = '-lualatex -interaction=nonstopmode'
 			}
 		end
 	}

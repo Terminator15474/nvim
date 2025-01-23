@@ -1,9 +1,10 @@
 return {
 	{
 		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		version = '*',
-		config = function()
-			require('lualine').setup {
+		event = { "VimEnter"},
+opts ={
 				function()
 					return require("lazydo").get_lualine_stats() -- status
 				end,
@@ -51,13 +52,13 @@ return {
 				inactive_winbar = {},
 				extensions = {}
 			}
-		end
 	},
 	{
 		"LunarVim/breadcrumbs.nvim",
 		dependencies = {
 			"SmiteshP/nvim-navic",
 		},
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("nvim-navic").setup {
 				lsp = {
@@ -96,7 +97,7 @@ return {
 		cmd = { "LazyDoToggle", "LazyDoPin" },
 		keys = {
 			{
-				"<leader>ts", "<ESC><CMD>LazyDoToggle<CR>", mode = { "n"}
+				"<leader>ts", "<ESC><CMD>LazyDoToggle<CR>", mode = { "n" }
 			}
 		},
 		opts = {}
@@ -116,8 +117,6 @@ return {
 	},
 	{
 		"0xstepit/flow.nvim",
-		lazy = false,
-		priority = 1000,
 		tag = "v2.0.0",
 		-- @module 0xstepit/flow.nvim
 		-- @type
