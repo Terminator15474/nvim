@@ -14,7 +14,7 @@ return {
 			}
 
 		},
-		lazy = false,
+		keys = { "<leader>fh", "<leader>ff", "<leader>ft", "<leader>cc", "<leader>fn", "<leader>gc", "<leader>gb", "<leader>cd" },
 		config = function()
 			require('telescope').load_extension('fzf')
 			require('telescope').load_extension('zoxide')

@@ -1,5 +1,3 @@
-vim.cmd("colorscheme tokyonight")
-
 local colorschemes = {
 	'tokyonight-moon',
 	'tokyonight-storm',
@@ -30,3 +28,13 @@ function set_random_color(opts)
 end
 
 vim.api.nvim_create_user_command('RandomColors', set_random_color, {})
+
+local M = {
+	setup = function(_)
+		vim.notify("Called setup of random colorscheme", vim.log.levels.DEBUG, { id = "colorscheme setup" })
+	end,
+	set_random_color = set_random_color,
+}
+
+
+return M

@@ -20,14 +20,27 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 ---@module 'lazy.types'
 ---@type LazyConfig
-require("lazy").setup({
+require("lazy").setup {
 	spec = "lazy.lazy_specs",
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "tokyonight", "habmax" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 	defaults = {
 		lazy = true,
 	}
-})
+}
+
+-- profiling
+if vim.env.PROF then
+	-- example for lazy.nvim
+	-- change this to the correct path for your plugin manager
+	local snacks = vim.fn.stdpath("data") .. "/lazy/snacks.nvim"
+	vim.opt.rtp:append(snacks)
+	require("snacks.profiler").startup({
+		startup = {
+			event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
+			-- event = "UIEnter",
+			-- event = "VeryLazy",
+		},
+	})
+end

@@ -22,9 +22,13 @@ return {
 			notification = {
 				-- wo = { wrap = true } -- Wrap notifications
 			}
+		},
+		profiler = {
+			enabled = vim.env.PROF,
 		}
 	},
 	keys = {
+		{ "<leader>ps", function() Snacks.profiler.scratch() end,      desc = "Profiler scratch buffer" },
 		{ "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
 		{ "<leader>bd", function() Snacks.bufdelete() end,             desc = "Delete Buffer" },
 		{ "<leader>cR", function() Snacks.rename.rename_file() end,    desc = "Rename File" },
@@ -65,6 +69,7 @@ return {
 
 				-- Create some toggle mappings
 				Snacks.toggle.diagnostics():map("<leader>td")
+				Snacks.toggle.profiler():map("<leader>pp")
 			end,
 		})
 	end,

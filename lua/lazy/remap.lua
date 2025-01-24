@@ -19,7 +19,6 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 vim.api.nvim_create_augroup("AutoFormat", {})
-
 vim.api.nvim_create_autocmd(
 	"BufWritePost",
 	{
@@ -34,7 +33,6 @@ vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 
 vim.keymap.set('n', '<leader>w', '<C-W>')
 
@@ -44,3 +42,11 @@ vim.keymap.set({ "n", "v" }, "<leader>ud", function()
 end)
 
 vim.keymap.set("n", "<leader>to", "<cmd>TransparentToggle<cr>")
+
+vim.api.nvim_create_augroup("Remaps", {})
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = "Remaps",
+	callback = function()
+		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+	end
+})
