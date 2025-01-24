@@ -48,5 +48,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = "Remaps",
 	callback = function()
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+		vim.keymap.set("i", "<C-h>", "<esc>ldbi")
+		vim.keymap.set("i", "<C-Del>", "<esc>ldwi")
 	end
 })
