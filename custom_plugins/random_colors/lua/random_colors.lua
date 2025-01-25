@@ -13,7 +13,7 @@ local colorschemes = {
 	-- maybe extend in the future
 }
 
-function set_random_color(opts)
+local function set_random_color(opts)
 	local idx = vim.fn.rand() % #colorschemes
 	local active_colors = vim.g.colors_name
 
