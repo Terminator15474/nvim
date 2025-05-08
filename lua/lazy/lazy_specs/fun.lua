@@ -12,6 +12,12 @@ return {
 	},
 	{
 		'OXY2DEV/markview.nvim',
-		lazy = false,
+		lazy = true,
+		event = "BufReadPost"
+	},
+	{
+		'ThePrimeagen/vim-be-good',
+		lazy = true,
+		cmd = "VimBeGood",
 	}
 }

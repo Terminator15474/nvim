@@ -73,7 +73,7 @@ return {
 		dependencies = {
 			"SmiteshP/nvim-navic",
 		},
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-navic").setup {
 				lsp = {
