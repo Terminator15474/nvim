@@ -14,7 +14,11 @@ return {
 					preset = 'super-tab',
 					['<UP>'] = { 'select_prev', 'fallback' },
 					['<DOWN>'] = { 'select_next', 'fallback' },
-					['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+					['<C-space>'] = { function(cmp)
+						print("Blink completion C-Space triggered")
+						cmp.show({ providers = { 'lsp' } })
+					end },
+					['<C-Z>'] = { 'accept' },
 					['<PageUp>'] = { 'scroll_documentation_up' },
 					['<PageDown>'] = { 'scroll_documentation_down' }
 				},
@@ -36,6 +40,7 @@ return {
 				completion = {
 					accept = { auto_brackets = { enabled = true } },
 					trigger = {
+						show_on_trigger_character = true,
 						prefetch_on_insert = true,
 					},
 					menu = {
@@ -119,4 +124,4 @@ return {
 			})
 		end,
 	},
-	}
+}

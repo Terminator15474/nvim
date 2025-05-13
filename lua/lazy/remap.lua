@@ -52,3 +52,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("i", "<C-Del>", "<esc>ldwi")
 	end
 })
+

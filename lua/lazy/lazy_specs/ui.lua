@@ -86,6 +86,8 @@ return {
 	},
 	{
 		'xiyaowong/transparent.nvim',
+		lazy=false,
+		-- cmd = "TransparentToggle",
 		config = function()
 			require("transparent").setup({
 				-- table: default groups
