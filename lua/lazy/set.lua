@@ -24,3 +24,5 @@ vim.opt.colorcolumn = "80" -- dark blue column after 80 chars
 vim.opt.winblend = 15
 
 vim.g.mapleader = " "
+
+vim.diagnostic.config({ virtual_text = { current_line = true } })

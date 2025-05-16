@@ -1,0 +1,7 @@
+-- vim.lsp.enable {
+-- 	"luals",
+-- 	"rust-analyzer",
+-- 	"gopls",
+-- 	"powershelles",
+-- 	"emmyluals",
+-- }
