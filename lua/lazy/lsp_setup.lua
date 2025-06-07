@@ -1,7 +1,9 @@
--- vim.lsp.enable {
--- 	"luals",
--- 	"rust-analyzer",
--- 	"gopls",
--- 	"powershelles",
--- 	"emmyluals",
--- }
+vim.lsp.enable {
+	"lua_ls",
+	"zls",
+	"rust-analyzer",
+	"wgsl_analyzer"
+	-- "gopls",
+	-- "powershelles",
+	-- "emmyluals",
+}

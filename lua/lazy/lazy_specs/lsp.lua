@@ -30,8 +30,14 @@ return {
 					"gopls",
 					"rust_analyzer",
 					"powershell_es",
+					"wgsl-analyzer",
 				},
-				automatic_enable = true,
+				automatic_enable = {
+					exlude = {
+						"lua_ls",
+						"wgsl-analyzer",
+					}
+				},
 			}
 		end
 	},
