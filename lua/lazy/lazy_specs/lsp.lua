@@ -14,6 +14,7 @@ return {
 						-- Load luvit types when the `vim.uv` word is found
 						{ path = "wezterm-types",      mods = { "wezterm" } },
 						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+						{ "nvim-dap-ui" },
 					},
 				},
 			},
@@ -30,7 +31,6 @@ return {
 					"gopls",
 					"rust_analyzer",
 					"powershell_es",
-					"wgsl-analyzer",
 				},
 				automatic_enable = {
 					exlude = {

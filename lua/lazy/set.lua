@@ -15,7 +15,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 16
+vim.opt.scrolloff = 20
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
