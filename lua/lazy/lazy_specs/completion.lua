@@ -5,8 +5,8 @@ return {
 			'rafamadriz/friendly-snippets',
 			'xzbdmw/colorful-menu.nvim',
 		},
-		version = 'v0.9.2',
 		event = { "BufReadPost", "BufNewFile", "CmdlineEnter" },
+		version = "1.*",
 		config = function()
 			---@type blink.cmp.Config
 			local opts = {
@@ -21,6 +21,17 @@ return {
 					['<C-Z>'] = { 'accept' },
 					['<PageUp>'] = { 'scroll_documentation_up' },
 					['<PageDown>'] = { 'scroll_documentation_down' }
+				},
+				cmdline = {
+					enabled = true,
+					sources = { 'buffer', 'cmdline' },
+					completion = {
+						trigger = { show_on_blocked_trigger_characters = {}, show_on_x_blocked_trigger_characters = {} },
+						list = { selection = { preselect = true, auto_insert = true } },
+						menu = { auto_show = true },
+						ghost_text = { enabled = true },
+					},
+					keymap = { preset = 'inherit' },
 				},
 				appearance = {
 					use_nvim_cmp_as_default = false,
