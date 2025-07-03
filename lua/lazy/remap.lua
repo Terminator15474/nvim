@@ -48,17 +48,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = "Remaps",
 	callback = function()
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
-		vim.keymap.set("i", "<C-h>", "<c>ldbi")
-		vim.keymap.set("i", "<C-Del>", "<esc>ldwi")
 	end
 })
+
+vim.keymap.set("i", "<C-H>", "<C-W>")
+
 
 -- Debugging stuff
 -- Mnemonic breakpoints
 vim.keymap.set({ "n" }, "<leader>bb", require("dap").toggle_breakpoint)
+
 vim.keymap.set({ "n" }, "<C-n>", require("dap").step_over)
--- Mnemonic List breakpoints
-vim.keymap.set({ "n" }, "<leader>bl", require("dap").list_breakpoints)
+vim.keymap.set({ "n" }, "<F10>", require("dap").step_over)
+
 vim.keymap.set({ "n" }, "<leader>bi", require("dap").step_into)
--- Mnemonic: debug (continue starts the debug)
+vim.keymap.set({ "n" }, "<F11>", require("dap").step_into)
+
+vim.keymap.set({ "n" }, "<leader>bl", require("dap").list_breakpoints)
+
 vim.keymap.set({ "n" }, "<leader>dbg", require("dap").continue)
+vim.keymap.set({ "n" }, "<F5>", require("dap").continue)

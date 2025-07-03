@@ -1,5 +1,9 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		"OXY2DEV/markview.nvim",
+	},
+
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
 	config = function()
@@ -43,6 +47,7 @@ return {
 		})
 
 		local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		---@diagnostic disable-next-line: inject-field
 		treesitter_parser_config.templ = {
 			install_info = {
 				url = "https://github.com/vrischmann/tree-sitter-templ.git",

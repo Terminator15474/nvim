@@ -12,8 +12,11 @@ return {
 	},
 	{
 		'OXY2DEV/markview.nvim',
-		lazy = true,
-		event = "BufReadPost"
+		lazy = false,
+		priority = 49,
+		dependencies = {
+			"saghen/blink.cmp",
+		}
 	},
 	{
 		'ThePrimeagen/vim-be-good',
