@@ -1,15 +1,25 @@
 return {
-	{
-		dir = "C:/Users/jando/AppData/Local/nvim/custom_plugins/random_colors",
-		dependencies = {
-			'shaunsingh/nord.nvim',
-			'ficcdaf/ashen.nvim',
-			"rebelot/kanagawa.nvim",
-			"rose-pine/neovim",
-			"0xstepit/flow.nvim",
-		},
-		cmd = "RandomColors",
-	},
+	(function()
+		local dir = "C:/Users/jando/AppData/Local/nvim/custom_plugins/random_colors"
+
+		if vim.loop.os_uname().sysname == "Linux" then
+			dir = "~/.config/nvim/custom_plugins/random_colors/"
+		end
+
+		local ret = {
+			dir = dir,
+			dependencies = {
+				'shaunsingh/nord.nvim',
+				'ficcdaf/ashen.nvim',
+				"rebelot/kanagawa.nvim",
+				"rose-pine/neovim",
+				"0xstepit/flow.nvim",
+			},
+			cmd = "RandomColors",
+		}
+
+		return ret
+	end)(),
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },

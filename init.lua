@@ -6,5 +6,3 @@ require("lazy.lsp_setup")
 vim.cmd [[ language en_US ]]
 vim.cmd [[ TransparentEnable ]]
 
-
-
