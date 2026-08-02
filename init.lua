@@ -1,4 +1,4 @@
-require("lazy.init")
-require("lazy.set")
-require("lazy.remap")
+require('plugins')
+require('set')
+require('remap')
 vim.cmd [[ language en_US ]]
