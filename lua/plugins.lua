@@ -6,12 +6,13 @@ end, {})
 vim.api.nvim_create_autocmd('PackChanged', {
 	callback = function(ev) 
 		local spec = ev.data.spec
-		if spec.name == 'fzf-native.nvim' and (ev.data.kind == 'install' or ev.data.kind == 'update' ) then
-			vim.system(
-				{"make"},
-				{ cwd = ev.data.path, }
-			):wait()
-		end
+		-- currently not needed, but a way to run "build" command of lazy.nvim
+		-- if spec.name == 'fzf-native.nvim' and (ev.data.kind == 'install' or ev.data.kind == 'update' ) then
+		-- 	vim.system(
+		-- 		{'make'},
+		-- 		{ cwd = ev.data.path, }
+		-- 	):wait()
+		-- end
 
 		require('nvim-treesitter.install').update() 
 	end
@@ -64,23 +65,28 @@ require('plugin_config.lsp') -- requires blink.cmp
 ----------------------
 
 
+-- Debugger
+vim.pack.add({
+	'https://github.com/rcarriga/nvim-dap-ui',
+	'https://github.com/mfussenegger/nvim-dap',
+	'https://github.com/nvim-neotest/nvim-nio',
+})
+
+require('plugin_config.debugger')
+
+
 -- Common dependencies
 vim.pack.add({
 	'https://github.com/nvim-tree/nvim-web-devicons',
 })
 
 
--- Telescope
+-- Fzf Lua
 vim.pack.add({
-	'https://github.com/nvim-lua/plenary.nvim',
-	{
-		src='https://github.com/nvim-telescope/telescope-fzf-native.nvim',
-		name='fzf-native.nvim'
-	},
-	'https://github.com/nvim-telescope/telescope.nvim',
+	'https://github.com/ibhagwan/fzf-lua',
 })
 
-require('plugin_config.telescope')
+require('plugin_config.fzf_lua')
 
 
 -- lualine

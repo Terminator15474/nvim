@@ -52,3 +52,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('i', '<C-Del>', '<esc>ldwi')
 	end
 })
+
+
+-- Debugging stuff
+-- Mnemonic breakpoints
+vim.keymap.set({ "n" }, "<leader>bb", require("dap").toggle_breakpoint)
+
+vim.keymap.set({ "n" }, "<C-n>", require("dap").step_over)
+vim.keymap.set({ "n" }, "<F10>", require("dap").step_over)
+
+vim.keymap.set({ "n" }, "<leader>bi", require("dap").step_into)
+vim.keymap.set({ "n" }, "<F11>", require("dap").step_into)
+
+vim.keymap.set({ "n" }, "<leader>bl", require("dap").list_breakpoints)
+
+vim.keymap.set({ "n" }, "<leader>dbg", require("dap").continue)
+vim.keymap.set({ "n" }, "<F5>", require("dap").continue)

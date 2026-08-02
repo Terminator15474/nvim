@@ -15,8 +15,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 16
-vim.opt.signcolumn = 'yes'
+vim.opt.scrolloff = 20
+vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = '80' -- dark blue column after 80 chars
@@ -24,3 +24,6 @@ vim.opt.colorcolumn = '80' -- dark blue column after 80 chars
 vim.opt.winblend = 15
 
 vim.g.mapleader = ' '
+vim.g.mapleader = " "
+
+vim.diagnostic.config({ virtual_text = true, virtual_lines = true, severity_sort = true, update_in_insert = true })

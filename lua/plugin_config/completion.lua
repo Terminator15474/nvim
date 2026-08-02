@@ -31,17 +31,34 @@ local opts = {
 		preset = 'super-tab',
 		['<UP>'] = { 'select_prev', 'fallback' },
 		['<DOWN>'] = { 'select_next', 'fallback' },
-		['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+		['<C-space>'] = { function(cmp)
+			print("Blink completion C-Space triggered")
+			cmp.show({ providers = { 'lsp' } })
+		end },
+		['<C-y>'] = { 'accept' },
 		['<PageUp>'] = { 'scroll_documentation_up' },
 		['<PageDown>'] = { 'scroll_documentation_down' }
+	},
+	cmdline = {
+		completion = {
+			trigger = { show_on_blocked_trigger_characters = {}, show_on_x_blocked_trigger_characters = {} },
+			list = { selection = { preselect = true, auto_insert = true } },
+			menu = {
+				auto_show = function(ctx)
+					return vim.fn.getcmdtype() == ':'
+				end
+			},
+			ghost_text = { enabled = true },
+		},
+		keymap = { preset = 'inherit' },
 	},
 	appearance = {
 		use_nvim_cmp_as_default = false,
 		nerd_font_variant = 'mono',
 	},
 	sources = {
-		min_keyword_length = 0,
 		default = { 'lsp', 'lazydev', 'path', 'buffer' },
+		min_keyword_length = 0,
 		providers = {
 			lazydev = {
 				name = "LazyDev",
@@ -53,6 +70,7 @@ local opts = {
 	completion = {
 		accept = { auto_brackets = { enabled = true } },
 		trigger = {
+			show_on_trigger_character = true,
 			prefetch_on_insert = true,
 		},
 		menu = {
