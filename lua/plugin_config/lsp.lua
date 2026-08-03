@@ -1,15 +1,14 @@
-local lazydev_opts = {
+local opts = {
 	library = {
 		-- See the configuration section for more details
 		-- Load luvit types when the `vim.uv` word is found
 		{ path = "wezterm-types",      mods = { "wezterm" } }, -- maybe unneeded
 		{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 		{ "nvim-dap-ui" },
-
 	},
 }
 
-require('lazydev').setup(opts)
+require('lazydev').setup()
 
 
 require('mason').setup {}

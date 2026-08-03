@@ -4,7 +4,7 @@ fzf.setup({
 	"telescope", -- Use Telescope-like theme
 	winopts = {
 		preview = {
-			hidden = "nohidden",
+			hidden = false,
 		},
 	},
 })
@@ -23,7 +23,7 @@ vim.keymap.set("n", "<leader>fh", fzf.help_tags)
 vim.keymap.set("n", "<leader>ft", fzf.live_grep)
 
 vim.keymap.set("n", "<leader>fn", function()
-	fzf.git_files({ cwd = vim.fn.stdpath("config"), hidden=true, ignore_current_file=true})
+	fzf.git_files({ cwd = vim.fn.stdpath("config"), hidden = true, ignore_current_file = true })
 end)
 
 vim.keymap.set("n", "<leader>cc", fzf.colorschemes)
@@ -32,3 +32,4 @@ vim.keymap.set("n", "<leader>gb", fzf.git_branches)
 
 -- Optional: Use zoxide with fzf-lua if desired
 vim.keymap.set("n", "<leader>cd", fzf.zoxide) -- Only works if zoxide is installed
+
