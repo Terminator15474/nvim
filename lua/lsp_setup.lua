@@ -19,7 +19,8 @@ vim.lsp.enable {
 	"lua_ls",
 	"zls",
 	"rust-analyzer",
-	"wgsl_analyzer"
+	"wgsl_analyzer",
+	"qmlls"
 	-- "gopls",
 	-- "powershelles",
 	-- "emmyluals",
