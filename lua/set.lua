@@ -26,4 +26,4 @@ vim.opt.winblend = 15
 vim.g.mapleader = ' '
 vim.g.mapleader = " "
 
-vim.diagnostic.config({ virtual_text = true, virtual_lines = true, severity_sort = true, update_in_insert = true })
+vim.diagnostic.config({ virtual_text = true, virtual_lines = true, severity_sort = true, update_in_insert = false })

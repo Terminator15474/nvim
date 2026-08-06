@@ -21,6 +21,7 @@ return {
 				globals = {
 					'vim',
 					'require',
+					'Snacks',
 				},
 			},
 			telemetry = {
